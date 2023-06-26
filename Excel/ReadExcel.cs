@@ -14,7 +14,7 @@ namespace Excel
 
 		{
 			//放EXCEL檔路徑
-			string sourcePath = @"C:\Users\G-pro\Downloads\BookProducts.xlsx";
+			string sourcePath = @"C:\Users\G-pro\Downloads\BookProductsAfter.xlsx";
 
 			Microsoft.Office.Interop.Excel.Application _application
 				= new Microsoft.Office.Interop.Excel.Application();
@@ -30,16 +30,17 @@ namespace Excel
 
 				int row = sheet.UsedRange.Rows.Count;
 				int columns = sheet.UsedRange.Columns.Count;
-				
-				Range range = sheet.Range[sheet.Cells[1,1],sheet.Cells[row,columns]];
+
+				Range range = sheet.Range[sheet.Cells[1, 1], sheet.Cells[row, columns]];
 
 				Array result = range.Value2;
 
-				for(int i = 2; i <= columns; i++)
+				for (int i = 2; i <= columns; i++)
 				{
-					for(int j = 1; j <= row; j++)
+					for (int j = 1; j <= row; j++)
 					{
-						Console.WriteLine((string)result.GetValue(1, j)+" " + result.GetValue(i, j));
+
+						Console.WriteLine((string)result.GetValue(1, j) + " " + result.GetValue(i, j));
 					}
 				}
 
@@ -56,7 +57,7 @@ namespace Excel
 
 		static void Main(string[] args)
 		{
-		
+
 			ReadExcel excel = new ReadExcel();
 
 			Console.WriteLine(excel);
